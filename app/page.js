@@ -27,14 +27,14 @@ export default function Home() {
             onHoverStart={(event) => {}}
             onHoverEnd={(event) => {}}
           >
-            <ScrollLink
-              to="about"
-              smooth={true}
-              duration={500}
+            <Link
+              href="/files/Justin_Yun_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-[#4A90E2] text-white px-6 py-3 rounded-lg hover:bg-[#357ABD] transition-colors duration-200 cursor-pointer inline-block"
             >
-              Learn More
-            </ScrollLink>
+              Resume
+            </Link>
           </motion.div>
         </div>
       </section>

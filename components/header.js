@@ -1,10 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link as ScrollLink } from "react-scroll";
+import Link from "next/link";
 import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const headerRef = useRef(null);
 
   const navItems = [
     { name: "Home", scrollTo: "home" },
@@ -21,7 +23,11 @@ export default function Header() {
       href: "https://www.linkedin.com/in/justin-yunn/",
       label: "LinkedIn",
     },
-    { icon: Mail, href: "mailto:hello@example.com", label: "Email" },
+    {
+      icon: Mail,
+      label: "Email",
+      scrollTo: "contact",
+    },
   ];
 
   const scrollProps = {
@@ -30,6 +36,23 @@ export default function Header() {
     offset: -80,
     spy: true,
   };
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (headerRef.current && !headerRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   const renderNavLink = (item) => {
     return (
@@ -62,7 +85,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#2D2D2D]/90 backdrop-blur-md border-b border-[#1A1A1A]/50 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 md:h-20">
+        <div className="flex justify-between items-center h-16 md:h-20 relative">
           {/* Logo/Name */}
           <div className="flex-shrink-0">
             <ScrollLink
@@ -74,37 +97,48 @@ export default function Header() {
             </ScrollLink>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation - Absolutely Centered */}
+          <nav className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
             {navItems.map((item) => renderNavLink(item))}
           </nav>
 
           {/* Desktop Social Links & CTA */}
           <div className="hidden md:flex items-center space-x-4">
             <div className="flex items-center space-x-3">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#F5F5F5]/70 hover:text-[#4A90E2] transition-colors duration-200 p-2 hover:bg-[#1A1A1A]/50 rounded-lg"
-                  aria-label={social.label}
-                >
-                  <social.icon size={20} />
-                </a>
-              ))}
+              {socialLinks.map((social) =>
+                social.scrollTo ? (
+                  <ScrollLink
+                    key={social.label}
+                    to={social.scrollTo}
+                    {...scrollProps}
+                    className="text-[#F5F5F5]/70 hover:text-[#4A90E2] transition-colors duration-200 p-2 hover:bg-[#1A1A1A]/50 rounded-lg cursor-pointer"
+                    aria-label={social.label}
+                  >
+                    <social.icon size={20} />
+                  </ScrollLink>
+                ) : (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#F5F5F5]/70 hover:text-[#4A90E2] transition-colors duration-200 p-2 hover:bg-[#1A1A1A]/50 rounded-lg"
+                    aria-label={social.label}
+                  >
+                    <social.icon size={20} />
+                  </a>
+                )
+              )}
             </div>
             <div className="w-px h-6 bg-[#F5F5F5]/20 mx-2"></div>
-            <ScrollLink
-              to="contact"
-              smooth={true}
-              duration={500}
-              offset={-80}
-              className="bg-gradient-to-r from-[#4A90E2] to-[#6BB6FF] text-white px-6 py-2.5 rounded-full font-medium hover:shadow-lg hover:shadow-[#4A90E2]/25 hover:scale-105 transition-all duration-200 cursor-pointer"
+            <Link
+              href="../files/Justin_Yun_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-[#4A90E2] to-[#6BB6FF] text-white px-6 py-2.5 rounded-full font-medium hover:shadow-lg hover:shadow-[#4A90E2]/25 hover:scale-105 transition-all duration-200 cursor-pointer inline-block"
             >
-              Get In Touch
-            </ScrollLink>
+              Resume
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -123,37 +157,36 @@ export default function Header() {
             isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           } overflow-hidden`}
         >
-          <div className="py-4 space-y-4 border-t border-[#1A1A1A]/50">
+          <div className="py-4 space-y-4 border-t border-[#1A1A1A]/50 text-center">
             {navItems.map((item) => renderMobileNavLink(item))}
 
             {/* Mobile Social Links */}
             <div className="flex items-center justify-center space-x-6 pt-4 border-t border-[#1A1A1A]/50">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#F5F5F5]/70 hover:text-[#4A90E2] transition-colors duration-200 p-2"
-                  aria-label={social.label}
-                >
-                  <social.icon size={24} />
-                </a>
-              ))}
-            </div>
-
-            {/* Mobile CTA */}
-            <div className="pt-2">
-              <ScrollLink
-                to="contact"
-                smooth={true}
-                duration={500}
-                offset={-80}
-                onClick={() => setIsMenuOpen(false)}
-                className="block bg-gradient-to-r from-[#4A90E2] to-[#6BB6FF] text-white text-center px-6 py-3 rounded-full font-medium hover:shadow-lg transition-all duration-200 cursor-pointer"
-              >
-                Get In Touch
-              </ScrollLink>
+              {socialLinks.map((social) =>
+                social.scrollTo ? (
+                  <ScrollLink
+                    key={social.label}
+                    to={social.scrollTo}
+                    {...scrollProps}
+                    onClick={() => setIsMenuOpen(false)} // Close mobile menu when clicked
+                    className="text-[#F5F5F5]/70 hover:text-[#4A90E2] transition-colors duration-200 p-2 cursor-pointer"
+                    aria-label={social.label}
+                  >
+                    <social.icon size={24} />
+                  </ScrollLink>
+                ) : (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#F5F5F5]/70 hover:text-[#4A90E2] transition-colors duration-200 p-2"
+                    aria-label={social.label}
+                  >
+                    <social.icon size={24} />
+                  </a>
+                )
+              )}
             </div>
           </div>
         </div>
