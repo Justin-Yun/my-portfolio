@@ -22,20 +22,15 @@ export default function Home() {
           <PortraitPhoto />
           <h1 className="text-5xl font-bold mb-6">Justin Yun</h1>
           <p className="text-xl mb-8">Software Engineer</p>
-          <motion.div
-            whileHover={{ scale: 1.2 }}
-            onHoverStart={(event) => {}}
-            onHoverEnd={(event) => {}}
+          <ScrollLink
+            to="about"
+            smooth={true}
+            duration={500}
+            offset={-80}
+            className="bg-gradient-to-r from-[#4A90E2] to-[#6BB6FF] text-white px-6 py-2.5 rounded-full font-medium hover:shadow-lg hover:shadow-[#4A90E2]/25 hover:scale-105 transition-all duration-200 cursor-pointer"
           >
-            <Link
-              href="/files/Justin_Yun_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#4A90E2] text-white px-6 py-3 rounded-lg hover:bg-[#357ABD] transition-colors duration-200 cursor-pointer inline-block"
-            >
-              Resume
-            </Link>
-          </motion.div>
+            Learn More
+          </ScrollLink>
         </div>
       </section>
 
@@ -79,8 +74,16 @@ export default function Home() {
         className="h-[85vh] flex items-center justify-center"
       >
         <div className="text-center">
-          <h2 className="text-4xl font-bold mb-6">Contact</h2>
-          <p className="text-lg max-w-2xl mx-auto">Contact</p>
+          <h2 className="text-4xl font-bold mb-6">Contact Info</h2>
+          <p className="text-lg max-w-2xl mx-auto">Add Contact Info Here</p>
+          <Link
+            href="../files/Justin_Yun_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gradient-to-r from-[#4A90E2] to-[#6BB6FF] text-white px-6 py-2.5 rounded-full font-medium hover:shadow-lg hover:shadow-[#4A90E2]/25 hover:scale-105 transition-all duration-200 cursor-pointer inline-block"
+          >
+            Resume
+          </Link>
         </div>
       </section>
     </PageTransition>
