@@ -1,0 +1,80 @@
+/* PortraitPhoto.module.css */
+.container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.circularPhoto {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  border: 4px solid #e5e7eb;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.profileImage {
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
+.squarePhoto {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  width: 400px;
+  height: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.squareImage {
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+}
+
+.rectangularPhoto {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  width: 500px;
+  height: 300px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.rectangularImage {
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+}
+
+.responsiveContainer {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 4/3;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.responsiveImage {
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+}
+
+/* Hover effects */
+.circularPhoto:hover,
+.squarePhoto:hover,
+.rectangularPhoto:hover,
+.responsiveContainer:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}

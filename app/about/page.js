@@ -1,9 +1,20 @@
-import React from 'react'
+import React from "react";
+import PageTransition from "../../components/PageTransition";
 
-export default function About() {
+const About = () => {
   return (
-    <div>
-      <h1>About</h1>
-    </div>
-  )
-}
+    <PageTransition>
+      <section
+        id="about"
+        className="min-h-screen flex items-center justify-center"
+      >
+        <div className="text-center">
+          <h1 className="text-5xl font-bold mb-6">About</h1>
+          <p className="text-xl mb-8">Hello</p>
+        </div>
+      </section>
+    </PageTransition>
+  );
+};
+
+export default About;
