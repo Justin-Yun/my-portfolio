@@ -1,8 +1,8 @@
 "use client";
 import "@/app/globals.css";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import ParticleBackground from "../components/ParticleBackground";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import ParticleBackground from "@/components/ParticleBackground";
 import { Zen_Kaku_Gothic_New } from "next/font/google";
 import { AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
