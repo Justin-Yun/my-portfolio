@@ -75,7 +75,7 @@ export default function Header() {
         to={item.scrollTo}
         {...scrollProps}
         onClick={() => setIsMenuOpen(false)}
-        className="block text-[#F5F5F5] hover:text-[#4A90E2] font-medium py-2 px-4 rounded-lg hover:bg-[#1A1A1A]/50 transition-colors duration-200 cursor-pointer"
+        className="block text-[#F5F5F5] hover:text-[#4A90E2] font-medium py-3 px-4 rounded-lg hover:bg-[#1A1A1A]/50 transition-colors duration-200 cursor-pointer"
       >
         {item.name}
       </ScrollLink>
@@ -83,14 +83,17 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#2D2D2D]/90 backdrop-blur-md border-b border-[#1A1A1A]/50 shadow-lg">
+    <header 
+      ref={headerRef}
+      className="fixed top-0 left-0 right-0 z-50 bg-[#2D2D2D]/90 backdrop-blur-md border-b border-[#1A1A1A]/50 shadow-lg"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 md:h-20 relative">
+        <div className="flex justify-between items-center h-14 md:h-20 relative">
           <div className="flex-shrink-0">
             <ScrollLink
               to="home"
               {...scrollProps}
-              className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#4A90E2] to-[#6BB6FF] bg-clip-text text-transparent hover:from-[#6BB6FF] hover:to-[#4A90E2] transition-all duration-300 cursor-pointer"
+              className="text-xl md:text-3xl font-bold bg-gradient-to-r from-[#4A90E2] to-[#6BB6FF] bg-clip-text text-transparent hover:from-[#6BB6FF] hover:to-[#4A90E2] transition-all duration-300 cursor-pointer"
             >
               Justin Yun
             </ScrollLink>
@@ -146,32 +149,32 @@ export default function Header() {
             className="md:hidden p-2 text-[#F5F5F5] hover:text-[#4A90E2] hover:bg-[#1A1A1A]/50 rounded-lg transition-colors duration-200"
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
 
         {/* Mobile Menu */}
         <div
           className={`md:hidden transition-all duration-300 ease-in-out ${
-            isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+            isMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
           } overflow-hidden`}
         >
-          <div className="py-4 space-y-4 border-t border-[#1A1A1A]/50 text-center">
+          <div className="py-6 space-y-2 border-t border-[#1A1A1A]/50 text-center">
             {navItems.map((item) => renderMobileNavLink(item))}
 
             {/* Mobile Social Links */}
-            <div className="flex items-center justify-center space-x-6 pt-4 border-t border-[#1A1A1A]/50">
+            <div className="flex items-center justify-center space-x-6 pt-6 border-t border-[#1A1A1A]/50">
               {socialLinks.map((social) =>
                 social.scrollTo ? (
                   <ScrollLink
                     key={social.label}
                     to={social.scrollTo}
                     {...scrollProps}
-                    onClick={() => setIsMenuOpen(false)} // Close mobile menu when clicked
+                    onClick={() => setIsMenuOpen(false)}
                     className="text-[#F5F5F5]/70 hover:text-[#4A90E2] transition-colors duration-200 p-2 cursor-pointer"
                     aria-label={social.label}
                   >
-                    <social.icon size={24} />
+                    <social.icon size={22} />
                   </ScrollLink>
                 ) : (
                   <a
@@ -182,10 +185,23 @@ export default function Header() {
                     className="text-[#F5F5F5]/70 hover:text-[#4A90E2] transition-colors duration-200 p-2"
                     aria-label={social.label}
                   >
-                    <social.icon size={24} />
+                    <social.icon size={22} />
                   </a>
                 )
               )}
+            </div>
+
+            {/* Mobile Resume Button */}
+            <div className="pt-4">
+              <Link
+                href="../files/Justin_Yun_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMenuOpen(false)}
+                className="bg-gradient-to-r from-[#4A90E2] to-[#6BB6FF] text-white px-6 py-2.5 rounded-full font-medium hover:shadow-lg hover:shadow-[#4A90E2]/25 transition-all duration-200 cursor-pointer inline-block"
+              >
+                Resume
+              </Link>
             </div>
           </div>
         </div>
