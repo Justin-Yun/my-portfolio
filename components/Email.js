@@ -12,7 +12,7 @@ const Email = () => {
   const [timeUntilReset, setTimeUntilReset] = useState(0);
 
   // Rate limiting configuration
-  const RATE_LIMIT_MAX = 3; // Maximum emails per time window
+  const RATE_LIMIT_MAX = 2; // Maximum emails per time window
   const RATE_LIMIT_WINDOW = 60 * 60 * 1000; // 1 hour in milliseconds
   const RATE_LIMIT_KEY = "email_submissions";
 
