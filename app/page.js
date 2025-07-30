@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
 import dynamic from "next/dynamic";
-import PageTransition from "@/components/PageTransition";
-import PortraitPhoto from "@/components/PortraitPhoto";
-import Email from "@/components/Email";
-import { ProjectsGrid } from "@/components/Project";
+import PageTransition from "../components/PageTransition";
+import PortraitPhoto from "../components/PortraitPhoto";
+import Email from "../components/Email";
+import { ProjectsGrid } from "../components/Project";
 import { siteContent } from "./content"; // Import your content
 
 // Dynamically import ScrollLink with no SSR
