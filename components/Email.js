@@ -166,21 +166,21 @@ const Email = () => {
   return (
     <div className="max-w-2xl mx-auto">
       {/* Clickable Email Address */}
-      <div className="mb-8 text-center">
+      {/* <div className="mb-8 text-center">
         <a
           href={`mailto:${siteContent.email.adress}`}
           className="bg-gradient-to-r from-[#4A90E2] to-[#6BB6FF] bg-clip-text text-transparent hover:from-[#6BB6FF] hover:to-[#4A90E2] transition-all duration-200 cursor-pointer font-medium text-lg"
         >
           {siteContent.email.adress}
         </a>
-      </div>
+      </div> */}
 
       {/* Divider */}
-      <div className="flex items-center my-8">
+      {/* <div className="flex items-center my-8">
         <div className="flex-1 border-t border-gray-600"></div>
         <span className="px-4 text-gray-400 text-sm">OR</span>
         <div className="flex-1 border-t border-gray-600"></div>
-      </div>
+      </div> */}
 
       {/* Rate Limit Warning */}
       {isRateLimited && (
@@ -194,7 +194,7 @@ const Email = () => {
       )}
 
       {/* Contact Form */}
-      <form ref={form} onSubmit={sendEmail} className="space-y-6 max-w-2xl">
+      <form ref={form} onSubmit={sendEmail} className="space-y-6 max-w-2xl space-x-50">
         {/* Name Field */}
         <div className="w-full">
           <label
@@ -209,7 +209,7 @@ const Email = () => {
             id="from_name"
             required
             disabled={isRateLimited}
-            className="w-full px-4 py-3 bg-gray-800 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full px-4 py-3 text-center bg-gray-800 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             placeholder="Your Name"
           />
         </div>
@@ -228,7 +228,7 @@ const Email = () => {
             id="from_email"
             required
             disabled={isRateLimited}
-            className="w-full px-4 py-3 bg-gray-800 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full px-4 py-3 text-center bg-gray-800 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             placeholder="your@email.com"
           />
         </div>
@@ -247,7 +247,7 @@ const Email = () => {
             rows="5"
             required
             disabled={isRateLimited}
-            className="w-full px-4 py-3 bg-gray-800 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full px-4 py-3 text-center bg-gray-800 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none disabled:opacity-50 disabled:cursor-not-allowed"
             placeholder="Your Message..."
           />
         </div>

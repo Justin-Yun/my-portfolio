@@ -72,7 +72,7 @@ export default function Home() {
                   <h4 className="text-lg text-blue-400">{job.position}</h4>
                   <h4 className="text-lg text-blue-400">{job.location}</h4>
                   <p className="text-gray-400 mb-2">{job.duration}</p>
-                  <p className="text-gray-300">{job.description}</p>
+                  <p className="text-gray-300 whitespace-pre-line">{job.description}</p>
                 </div>
               ))}
             </div>
@@ -97,7 +97,7 @@ export default function Home() {
         className="min-h-screen py-16 md:py-20 px-4 flex items-center justify-center"
       >
         <div className="text-center">
-          <h2 className="text-4xl font-bold mb-6">Contact Info</h2>
+          <h2 className="text-6xl font-bold mb-8">Let&apos;s Connect!</h2>{" "}
           <Email />
           {/* <Link
             href="../files/Justin_Yun_Resume.pdf"

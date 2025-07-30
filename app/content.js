@@ -13,10 +13,10 @@ export const siteContent = {
       position: "Software Engineer II",
       duration: "July 2020 - January 2025",
       description: [
-        "Integrated GraphQL into an existing Spring Boot application to improve API efficiency, reduce response times by 20%, and simplify data handling for client applications. ",
-        "Developed C++ load-injection simulators and a unified testing framework that enhanced performance, increased test reliability, and drove a 78% reduction in technical debt. ",
-        "Engineered ServiceNow solutions including custom forms, workflows, and REST APIs; partnered with cross-functional teams in Agile cycles to deliver scalable solutions. ",
-        "Consolidated 15+ ServiceNow forms by analyzing field usage, workflows, and activity logs—streamlining UX and reducing form maintenance overhead by 40%. ",
+        "Integrated GraphQL into an existing Spring Boot application to improve API efficiency, reduce response times by 20%, and simplify data handling for client applications.\n\n",
+        "Developed C++ load-injection simulators and a unified testing framework that enhanced performance, increased test reliability, and drove a 78% reduction in technical debt.\n\n",
+        "Engineered ServiceNow solutions including custom forms, workflows, and REST APIs; partnered with cross-functional teams in Agile cycles to deliver scalable solutions.\n\n",
+        "Consolidated 15+ ServiceNow forms by analyzing field usage, workflows, and activity logs—streamlining UX and reducing form maintenance overhead by 40%.\n\n",
         "Led infrastructure migration from Team Foundation Server (TFS) to GitHub and built automated CI/CD pipelines using GitHub Actions, reducing deployment times and eliminating manual deployment errors.",
       ],
     },
@@ -26,7 +26,7 @@ export const siteContent = {
       position: "Software Engineer Intern",
       duration: "May 2019 - August 2019",
       description: [
-        "Developed and optimized test automation portals using ASP Classic, reducing page load times by 70% and eliminating QA workflow bottlenecks. ",
+        "Developed and optimized test automation portals using ASP Classic, reducing page load times by 70% and eliminating QA workflow bottlenecks.\n\n",
         "Built custom XML processing functions to streamline automated testing workflows, achieving 80% reduction in test execution time and substantially improving testing efficiency for development cycles.",
       ],
     },
@@ -36,16 +36,16 @@ export const siteContent = {
       position: "IT Technician",
       duration: "June 2017 - May 2020",
       description: [
-        "Maintained technology infrastructure across over 500 classrooms serving 35,000 students and faculty, achieving 99.2% equipment uptime through rigorous maintenance protocols. ",
-        "Led annual refresh of over 200 workstations with updated software and security patches, coordinating with faculty to minimize disruptions. ",
-        "Provided real-time technical support and troubleshooting for classroom technology, resolving support tickets weekly to minimize instructional downtime. ",
+        "Maintained technology infrastructure across over 500 classrooms serving 35,000 students and faculty, achieving 99.2% equipment uptime through rigorous maintenance protocols.\n\n",
+        "Led annual refresh of over 200 workstations with updated software and security patches, coordinating with faculty to minimize disruptions.\n\n",
+        "Provided real-time technical support and troubleshooting for classroom technology, resolving support tickets weekly to minimize instructional downtime.\n\n",
         "Delivered exceptional customer service by promptly addressing faculty and student technical issues, ensuring high satisfaction and uninterrupted learning environments.",
       ],
     },
   ],
 
   email: {
-    adress: "justin.yun.0@gmail.com",
+    adress: "",
   },
 
   projects: [
