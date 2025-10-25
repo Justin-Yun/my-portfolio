@@ -8,6 +8,15 @@ export const siteContent = {
 
   experience: [
     {
+      company: "National Park Service (Cherokee Federal)",
+      location: "Remote",
+      position: "Web Developer",
+      duration: "September 2025 - Present",
+      description: [
+        "Designed and developed .NET Core solutions leveraging AWS services.\n\n",
+      ],
+    },
+    {
       company: "Travelport",
       location: "Englewood, CO",
       position: "Software Engineer II",
@@ -54,7 +63,13 @@ export const siteContent = {
       description:
         "A modern, responsive artwork portfolio website built with Next.js featuring particle animations, smooth scrolling, and dynamic content.",
       image: "/images/project/chiyu.png",
-      technologies: ["Next.js", "React", "Tailwind CSS", "Framer Motion", "Vercel"],
+      technologies: [
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Vercel",
+      ],
       githubUrl: "https://github.com/Justin-Yun/Chiyu-Next",
       liveUrl: "https://chiyu-next.vercel.app/",
       status: "completed",
